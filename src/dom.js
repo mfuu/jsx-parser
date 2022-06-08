@@ -1,5 +1,5 @@
 import { css, isSVG, createFragmentFrom,  } from './utils.js'
-import { EVENT_HANDLERS, EVENTS, HTML_TAGS, GLOBAL_ATTRIBUTES } from './events.js'
+import { EVENT_HANDLERS, EVENTS, HTML_TAGS, GLOBAL_ATTRIBUTES } from './event.js'
 
 /**
  * The JSXTag will be unwrapped returning the html
@@ -13,7 +13,7 @@ import { EVENT_HANDLERS, EVENTS, HTML_TAGS, GLOBAL_ATTRIBUTES } from './events.j
  *   return h("span", null, props.num);
  * }
  */
-function composeToFunction(JSXTag, elementProps, children) {
+export function composeToFunction(JSXTag, elementProps, children) {
   const props = Object.assign({}, JSXTag.defaultProps || {}, elementProps, { children })
   const bridge = JSXTag.prototype.render ? new JSXTag(props).render : JSXTag
   const result = bridge(props)
@@ -42,7 +42,7 @@ function composeToFunction(JSXTag, elementProps, children) {
  * @param  {Array} children html nodes from inside de elements
  * @return {HTMLElement|SVGElement} html node with attrs
  */
-function createElement(tagName, props, ...children) {
+export function createElement(tagName, props, ...children) {
   if (props === null) props = {}
   // 判断标签类型并取出标签中的attrs
   const tag = HTML_TAGS[tagName]
@@ -105,7 +105,7 @@ function createElement(tagName, props, ...children) {
 }
 
 
-function h(element, attrs, ...children) {
+export function h(element, attrs, ...children) {
   // Custom Components will be functions
   if (typeof element === 'function') {
     // e.g. const CustomTag = ({ w }) => <span width={w} />

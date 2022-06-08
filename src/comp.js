@@ -1,4 +1,4 @@
-import { EVENT_HANDLERS } from './events.js'
+import { EVENT_HANDLERS } from './event.js'
 
 export default class JSXComponent {
   constructor(props) {
