@@ -1,7 +1,7 @@
 # Usage
 
 ```js
-import JSX from './src/index.js'
+import JSX from 'dist/index.js'
 
 class Comp {
   constructor() {
