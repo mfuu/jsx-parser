@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mfuu/jsx-component.git"
+    "url": "git+https://github.com/mfuu/jsx-parser.git"
   },
   "keywords": [
     "jsx"
@@ -17,9 +17,9 @@
   "author": "mfuu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mfuu/jsx-component/issues"
+    "url": "https://github.com/mfuu/jsx-parser/issues"
   },
-  "homepage": "https://github.com/mfuu/jsx-component#readme",
+  "homepage": "https://github.com/mfuu/jsx-parser#readme",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
