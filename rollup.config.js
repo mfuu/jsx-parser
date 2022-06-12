@@ -18,13 +18,15 @@ export default [
   {
     external: ['vue'],
     input: 'src/index.js',
-    output: {
-      format: 'umd',
-      file: 'dist/index.js',
-      name: 'JSXParser',
-      sourcemap: false,
-      banner: banner.replace(/\n/, '')
-    },
+    output: [
+      {
+        format: 'umd',
+        file: 'dist/index.js',
+        name: 'JSXParser',
+        sourcemap: false,
+        banner: banner.replace(/\n/, '')
+      }
+    ],
     plugins: [
       babel(),
       resolve(),
