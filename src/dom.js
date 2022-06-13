@@ -35,7 +35,7 @@ export function composeToFunction(JSXTag, elementProps, children) {
 
 
 /**
- * 创建Element
+ * Create Element
  *
  * @param  {String} tagName tag name: 'div', 'span', 'svg'
  * @param  {Object} props html attributes: data-, width, src
@@ -44,7 +44,7 @@ export function composeToFunction(JSXTag, elementProps, children) {
  */
 export function createElement(tagName, props, ...children) {
   if (props === null) props = {}
-  // 判断标签类型并取出标签中的attrs
+  // Determine the label type and take out the attrs in the label
   const tag = HTML_TAGS[tagName]
   const object = typeof tag === 'object'
   const tagType = object ? tag.name : tag
@@ -61,7 +61,7 @@ export function createElement(tagName, props, ...children) {
       element.setAttribute(attributes[prop], props[prop])
     }
 
-    // style 样式
+    // style
     if (prop === 'style') {
       let styles = props[prop]
       if (typeof props[prop] === 'string') {
@@ -73,11 +73,11 @@ export function createElement(tagName, props, ...children) {
       }
       Object.keys(styles).forEach(s => { css(element, s, styles[s]) })
 
-    } else if (EVENT_HANDLERS[prop] !== undefined) { // 添加 e.g. onClick 事件
+    } else if (EVENT_HANDLERS[prop] !== undefined) { // add e.g. onClick event
       const event = prop.replace(/^on/, '').toLowerCase()
       element.addEventListener(event, props[prop])
 
-    } else if (prop === 'on') { // 添加 e.g. click 事件
+    } else if (prop === 'on') { // add e.g. click event
       let events = props[prop]
       if (typeof events === 'string') {
         try {
